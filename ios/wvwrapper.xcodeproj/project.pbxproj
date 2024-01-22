@@ -11,14 +11,24 @@
 		3D340DC82B5EE838005C7D9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D340DC72B5EE838005C7D9F /* ContentView.swift */; };
 		3D340DCA2B5EE838005C7D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DC92B5EE838005C7D9F /* Assets.xcassets */; };
 		3D340DCD2B5EE838005C7D9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DCC2B5EE838005C7D9F /* Preview Assets.xcassets */; };
+		3D340DD52B5EEC31005C7D9F /* Config.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DD42B5EEC31005C7D9F /* Config.debug.xcconfig */; };
+		3D340DD82B5EEC6D005C7D9F /* Config.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DD72B5EEC6D005C7D9F /* Config.release.xcconfig */; };
+		3D340DDA2B5EEC7B005C7D9F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DD92B5EEC7B005C7D9F /* Config.xcconfig */; };
+		966541F5D972277CE71633BE /* Pods_wvwrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40977D1714A47B2C66D6182A /* Pods_wvwrapper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A6AF8A78550D2A379C642D9 /* Pods-wvwrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wvwrapper.release.xcconfig"; path = "Target Support Files/Pods-wvwrapper/Pods-wvwrapper.release.xcconfig"; sourceTree = "<group>"; };
 		3D340DC22B5EE838005C7D9F /* wvwrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wvwrapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D340DC52B5EE838005C7D9F /* wvwrapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wvwrapperApp.swift; sourceTree = "<group>"; };
 		3D340DC72B5EE838005C7D9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3D340DC92B5EE838005C7D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D340DCC2B5EE838005C7D9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3D340DD42B5EEC31005C7D9F /* Config.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.debug.xcconfig; sourceTree = "<group>"; };
+		3D340DD72B5EEC6D005C7D9F /* Config.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.release.xcconfig; sourceTree = "<group>"; };
+		3D340DD92B5EEC7B005C7D9F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		40977D1714A47B2C66D6182A /* Pods_wvwrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wvwrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA53D9260AC50A9CC3FF8261 /* Pods-wvwrapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wvwrapper.debug.xcconfig"; path = "Target Support Files/Pods-wvwrapper/Pods-wvwrapper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +36,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966541F5D972277CE71633BE /* Pods_wvwrapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		039D6667782EFFB0CDF82B76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40977D1714A47B2C66D6182A /* Pods_wvwrapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D340DB92B5EE837005C7D9F = {
 			isa = PBXGroup;
 			children = (
 				3D340DC42B5EE838005C7D9F /* wvwrapper */,
 				3D340DC32B5EE838005C7D9F /* Products */,
+				8F6137EB76D3663A0690D766 /* Pods */,
+				039D6667782EFFB0CDF82B76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +92,29 @@
 		3D340DD32B5EEB04005C7D9F /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				3D340DD62B5EEC3E005C7D9F /* Firebase */,
+				3D340DD92B5EEC7B005C7D9F /* Config.xcconfig */,
+				3D340DD42B5EEC31005C7D9F /* Config.debug.xcconfig */,
+				3D340DD72B5EEC6D005C7D9F /* Config.release.xcconfig */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		3D340DD62B5EEC3E005C7D9F /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		8F6137EB76D3663A0690D766 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA53D9260AC50A9CC3FF8261 /* Pods-wvwrapper.debug.xcconfig */,
+				1A6AF8A78550D2A379C642D9 /* Pods-wvwrapper.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,9 +124,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D340DD02B5EE838005C7D9F /* Build configuration list for PBXNativeTarget "wvwrapper" */;
 			buildPhases = (
+				6AF8FDA2584FDFDE8D6F108F /* [CP] Check Pods Manifest.lock */,
 				3D340DBE2B5EE838005C7D9F /* Sources */,
 				3D340DBF2B5EE838005C7D9F /* Frameworks */,
 				3D340DC02B5EE838005C7D9F /* Resources */,
+				376E7B861DCCCEBC45D431C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,11 +178,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D340DCD2B5EE838005C7D9F /* Preview Assets.xcassets in Resources */,
+				3D340DDA2B5EEC7B005C7D9F /* Config.xcconfig in Resources */,
 				3D340DCA2B5EE838005C7D9F /* Assets.xcassets in Resources */,
+				3D340DD52B5EEC31005C7D9F /* Config.debug.xcconfig in Resources */,
+				3D340DD82B5EEC6D005C7D9F /* Config.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		376E7B861DCCCEBC45D431C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wvwrapper/Pods-wvwrapper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wvwrapper/Pods-wvwrapper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wvwrapper/Pods-wvwrapper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6AF8FDA2584FDFDE8D6F108F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wvwrapper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D340DBE2B5EE838005C7D9F /* Sources */ = {
@@ -274,6 +363,7 @@
 		};
 		3D340DD12B5EE838005C7D9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA53D9260AC50A9CC3FF8261 /* Pods-wvwrapper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,6 +394,7 @@
 		};
 		3D340DD22B5EE838005C7D9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A6AF8A78550D2A379C642D9 /* Pods-wvwrapper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

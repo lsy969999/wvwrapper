@@ -6,5 +6,5 @@ target 'wvwrapper' do
   use_frameworks!
 
   # Pods for wvwrapper
-
+  pod 'Toast-Swift', '~> 5.1'
 end
