@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var wvViewModel: WVViewModel = WVViewModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            WVView(wvViewModel: wvViewModel)
         }
-        .padding()
     }
 }
 

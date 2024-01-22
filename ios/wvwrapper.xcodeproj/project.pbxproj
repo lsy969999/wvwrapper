@@ -14,6 +14,12 @@
 		3D340DD52B5EEC31005C7D9F /* Config.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DD42B5EEC31005C7D9F /* Config.debug.xcconfig */; };
 		3D340DD82B5EEC6D005C7D9F /* Config.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DD72B5EEC6D005C7D9F /* Config.release.xcconfig */; };
 		3D340DDA2B5EEC7B005C7D9F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D340DD92B5EEC7B005C7D9F /* Config.xcconfig */; };
+		3D340DDF2B5EEE5F005C7D9F /* WVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D340DDE2B5EEE5F005C7D9F /* WVView.swift */; };
+		3D340DE12B5EF5BD005C7D9F /* WVViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D340DE02B5EF5BD005C7D9F /* WVViewModel.swift */; };
+		3D340DE32B5F0019005C7D9F /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D340DE22B5F0019005C7D9F /* Const.swift */; };
+		3D340DE52B5F01E0005C7D9F /* WVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D340DE42B5F01E0005C7D9F /* WVDelegate.swift */; };
+		3D340DE72B5F01EE005C7D9F /* WVI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D340DE62B5F01EE005C7D9F /* WVI.swift */; };
+		3D340DE92B5F0213005C7D9F /* WVView+JsonDictParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D340DE82B5F0213005C7D9F /* WVView+JsonDictParse.swift */; };
 		966541F5D972277CE71633BE /* Pods_wvwrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40977D1714A47B2C66D6182A /* Pods_wvwrapper.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +33,12 @@
 		3D340DD42B5EEC31005C7D9F /* Config.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.debug.xcconfig; sourceTree = "<group>"; };
 		3D340DD72B5EEC6D005C7D9F /* Config.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.release.xcconfig; sourceTree = "<group>"; };
 		3D340DD92B5EEC7B005C7D9F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		3D340DDE2B5EEE5F005C7D9F /* WVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVView.swift; sourceTree = "<group>"; };
+		3D340DE02B5EF5BD005C7D9F /* WVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVViewModel.swift; sourceTree = "<group>"; };
+		3D340DE22B5F0019005C7D9F /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		3D340DE42B5F01E0005C7D9F /* WVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVDelegate.swift; sourceTree = "<group>"; };
+		3D340DE62B5F01EE005C7D9F /* WVI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVI.swift; sourceTree = "<group>"; };
+		3D340DE82B5F0213005C7D9F /* WVView+JsonDictParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WVView+JsonDictParse.swift"; sourceTree = "<group>"; };
 		40977D1714A47B2C66D6182A /* Pods_wvwrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wvwrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA53D9260AC50A9CC3FF8261 /* Pods-wvwrapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wvwrapper.debug.xcconfig"; path = "Target Support Files/Pods-wvwrapper/Pods-wvwrapper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				3D340DD32B5EEB04005C7D9F /* Config */,
+				3D340DDD2B5EEE38005C7D9F /* Bridge */,
+				3D340DDC2B5EEE30005C7D9F /* Models */,
+				3D340DDB2B5EEE28005C7D9F /* WVViews */,
 				3D340DC52B5EE838005C7D9F /* wvwrapperApp.swift */,
 				3D340DC72B5EE838005C7D9F /* ContentView.swift */,
 				3D340DC92B5EE838005C7D9F /* Assets.xcassets */,
@@ -96,6 +111,7 @@
 				3D340DD92B5EEC7B005C7D9F /* Config.xcconfig */,
 				3D340DD42B5EEC31005C7D9F /* Config.debug.xcconfig */,
 				3D340DD72B5EEC6D005C7D9F /* Config.release.xcconfig */,
+				3D340DE22B5F0019005C7D9F /* Const.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -107,13 +123,38 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		3D340DDB2B5EEE28005C7D9F /* WVViews */ = {
+			isa = PBXGroup;
+			children = (
+				3D340DDE2B5EEE5F005C7D9F /* WVView.swift */,
+				3D340DE42B5F01E0005C7D9F /* WVDelegate.swift */,
+				3D340DE82B5F0213005C7D9F /* WVView+JsonDictParse.swift */,
+				3D340DE62B5F01EE005C7D9F /* WVI.swift */,
+			);
+			path = WVViews;
+			sourceTree = "<group>";
+		};
+		3D340DDC2B5EEE30005C7D9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D340DE02B5EF5BD005C7D9F /* WVViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3D340DDD2B5EEE38005C7D9F /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
 		8F6137EB76D3663A0690D766 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				CA53D9260AC50A9CC3FF8261 /* Pods-wvwrapper.debug.xcconfig */,
 				1A6AF8A78550D2A379C642D9 /* Pods-wvwrapper.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -235,7 +276,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D340DC82B5EE838005C7D9F /* ContentView.swift in Sources */,
+				3D340DE92B5F0213005C7D9F /* WVView+JsonDictParse.swift in Sources */,
+				3D340DE12B5EF5BD005C7D9F /* WVViewModel.swift in Sources */,
 				3D340DC62B5EE838005C7D9F /* wvwrapperApp.swift in Sources */,
+				3D340DE72B5F01EE005C7D9F /* WVI.swift in Sources */,
+				3D340DDF2B5EEE5F005C7D9F /* WVView.swift in Sources */,
+				3D340DE32B5F0019005C7D9F /* Const.swift in Sources */,
+				3D340DE52B5F01E0005C7D9F /* WVDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +291,7 @@
 /* Begin XCBuildConfiguration section */
 		3D340DCE2B5EE838005C7D9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D340DD42B5EEC31005C7D9F /* Config.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -307,6 +355,7 @@
 		};
 		3D340DCF2B5EE838005C7D9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D340DD72B5EEC6D005C7D9F /* Config.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -372,6 +421,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"wvwrapper/Preview Content\"";
 				DEVELOPMENT_TEAM = DXLJDSFC2D;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -403,6 +453,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"wvwrapper/Preview Content\"";
 				DEVELOPMENT_TEAM = DXLJDSFC2D;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
