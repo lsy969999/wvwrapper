@@ -34,20 +34,34 @@ struct WVView: UIViewControllerRepresentable {
     }
 }
 
-class WV: UIViewController, WKUIDelegate, WKScriptMessageHandler {
+class WV: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNavigationDelegate {
     var webView: WKWebView!
     var delegate: WVDelegate!
     
+    var createWebView: WKWebView?
+    
     override func loadView() {
         let contentController = WKUserContentController()
+        //js bridge
         WVI.allCases.forEach{
             contentController.add(self, name: $0.rawValue)
         }
         
+        let wkPreferences = WKPreferences()
+        //window.open 허용
+        wkPreferences.javaScriptCanOpenWindowsAutomatically = true
+        
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController = contentController
+        webConfiguration.preferences = wkPreferences
+        
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
+        webView.navigationDelegate = self
+        
+        //사파리에서 꾹 누르면 미리보기 시트 뜨는거 취소
+        webView.allowsLinkPreview = false
+        
         if #available(iOS 16.4, *) {
             webView.isInspectable = true
         } else {
@@ -79,5 +93,72 @@ class WV: UIViewController, WKUIDelegate, WKScriptMessageHandler {
         } else {
             print("wv name not match")
         }
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    completionHandler()
+                }))
+                present(alertController, animated: true, completion: nil)
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let alertController = UIAlertController(title: "Confirm", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            completionHandler(true)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            completionHandler(false)
+        }))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
+
+        alertController.addTextField { textField in
+            textField.text = defaultText
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            completionHandler(nil)
+        }
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            if let text = alertController.textFields?.first?.text {
+                completionHandler(text)
+            } else {
+                completionHandler(nil)
+            }
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        //createWebview해주기전에
+        //이미 만든 createWebview가 있다면 기존것은 지워주고 createWebview 해준다.
+        //그렇지 않으면 createWebview가 겹쳐서 원래 webview로 돌아가지 못하는 현상이발생할수도 있다.
+        //재현: open('some url') -> open('some url2') 하고 close하면 원래 웹뷰로 못돌아감
+        if let beforeCreatedWebview = createWebView {
+            webViewDidClose(beforeCreatedWebview)
+        }
+        createWebView = WKWebView(frame: view.bounds, configuration: configuration)
+        createWebView?.uiDelegate = self
+        createWebView?.navigationDelegate = self
+        
+        // 현재 뷰 컨트롤러에 추가
+        view.addSubview(createWebView!)
+        // 새로운 WKWebView 반환
+        return createWebView
+    }
+    
+    func webViewDidClose(_ webView: WKWebView) {
+        createWebView?.removeFromSuperview()
+        createWebView = nil
     }
 }
