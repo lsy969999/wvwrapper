@@ -1,5 +1,5 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import CanvasGameView from '../game/CanvasGameView'
 
 const PixiView = () => {
   const navigate = useNavigate()
@@ -13,6 +13,7 @@ const PixiView = () => {
             back
         </button>
       </nav>
+      <CanvasGameView/>
     </div>
   )
 }

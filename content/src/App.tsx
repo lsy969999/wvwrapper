@@ -13,8 +13,8 @@ function App() {
       <Route path='/' element={<DefaultLayout/>}>
         <Route index element={<HomeView/>} />
         <Route path='hello' element={<HelloWorldView/>} />
-        <Route path='pixi' element={<PixiView/>} />
       </Route>
+      <Route path='/pixi' element={<PixiView/>} />
     </Routes>
   );
 }
