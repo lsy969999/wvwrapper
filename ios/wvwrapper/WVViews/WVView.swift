@@ -58,6 +58,8 @@ class WV: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNavigationDe
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
+        //스크롤 바운스 제거
+        webView.scrollView.bounces = false
         
         //사파리에서 꾹 누르면 미리보기 시트 뜨는거 취소
         webView.allowsLinkPreview = false
@@ -72,7 +74,7 @@ class WV: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNavigationDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myURL = URL(string:"https://www.apple.com")
+        let myURL = URL(string:"http://192.168.25.57:3000")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }

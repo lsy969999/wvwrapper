@@ -1,25 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import HelloWorldView from './views/HelloWorldView';
+import { Route, Routes } from 'react-router-dom';
+import DefaultLayout from './layout/DefaultLayout';
+import HomeView from './views/HomeView';
+import PixiView from './views/PixiView';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<DefaultLayout/>}>
+        <Route index element={<HomeView/>} />
+        <Route path='hello' element={<HelloWorldView/>} />
+        <Route path='pixi' element={<PixiView/>} />
+      </Route>
+    </Routes>
   );
 }
 
